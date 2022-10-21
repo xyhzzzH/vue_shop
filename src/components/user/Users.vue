@@ -329,7 +329,6 @@ export default {
     },
     // 根据Id删除对应的用户信息
     async removeUserById(id) {
-      console.log(this);
       // 弹框询问是否删除
        const confirmResult = await this.$confirm('此操作将永久删除该用户, 是否继续?', '提示', {
           confirmButtonText: '确定',

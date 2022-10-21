@@ -75,7 +75,6 @@ export default {
   methods: {
     // 点击重置按钮 重置登录表单
     resetLoginFrom() {
-      // console.log(this);
       this.$refs.loginFromRef.resetFields()
     },
     // 表单的预验证
