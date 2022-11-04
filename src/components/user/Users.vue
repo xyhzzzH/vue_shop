@@ -11,12 +11,32 @@
     <el-card class="box-card">
       <el-row :gutter="20">
         <el-col :span="7">
+<<<<<<< HEAD
           <el-input placeholder="请输入内容" v-model="queryInfo.query" clearable @clear="getUserList()">
             <el-button slot="append" icon="el-icon-search" @click="getUserList()"></el-button>
           </el-input>
         </el-col>
         <el-col :span="4">
           <el-button type="primary" @click="addDialogVisible = true">添加用户</el-button>
+=======
+          <el-input
+            placeholder="请输入内容"
+            v-model="queryInfo.query"
+            clearable
+            @clear="getUserList()"
+          >
+            <el-button
+              slot="append"
+              icon="el-icon-search"
+              @click="getUserList()"
+            ></el-button>
+          </el-input>
+        </el-col>
+        <el-col :span="4">
+          <el-button type="primary" @click="addDialogVisible = true"
+            >添加用户</el-button
+          >
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
         </el-col>
 
         <!-- 用户列表区域 -->
@@ -30,13 +50,21 @@
         <el-table-column label="状态" prop="mg_state">
           <!-- 接收子组件的scope -->
           <template slot-scope="scope">
+<<<<<<< HEAD
             <el-switch v-model="scope.row.mg_state" @change="userStateChanged(scope.row)">
+=======
+            <el-switch
+              v-model="scope.row.mg_state"
+              @change="userStateChanged(scope.row)"
+            >
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
             </el-switch>
           </template>
         </el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
             <!-- 修改按钮 -->
+<<<<<<< HEAD
             <el-button type="primary" icon="el-icon-edit" @click="showEditDialog(scope.row.id)"></el-button>
             <!-- 删除按钮 -->
             <el-button type="danger" icon="el-icon-delete" @click="removeUserById(scope.row.id)"></el-button>
@@ -44,11 +72,30 @@
             <el-tooltip effect="dark" content="分配角色" placement="top" :enterable="false">
               <el-button type="warning" icon="el-icon-setting" @click="setRole(scope.row)">
               </el-button>
+=======
+            <el-button
+              type="primary"
+              icon="el-icon-edit"
+              @click="showEditDialog(scope.row.id)"
+            ></el-button>
+            <!-- 删除按钮 -->
+            <el-button type="danger" icon="el-icon-delete"
+            @click="removeUserById(scope.row.id)"></el-button>
+            <!-- 分配角色按钮 -->
+            <el-tooltip
+              effect="dark"
+              content="分配角色"
+              placement="top"
+              :enterable="false"
+            >
+              <el-button type="warning" icon="el-icon-setting"></el-button>
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
             </el-tooltip>
           </template>
         </el-table-column>
       </el-table>
       <!-- 分页区域 -->
+<<<<<<< HEAD
       <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
         :current-page="queryInfo.pagenum" :page-sizes="[1, 2, 5, 10]" :page-size="queryInfo.pagesize"
         layout="total, sizes, prev, pager, next, jumper" :total="total">
@@ -58,6 +105,33 @@
     <el-dialog title="添加用户" :visible.sync="addDialogVisible" width="50%" @close="addDialogClosed">
       <!-- 内容主体区域 -->
       <el-form :model="addForm" :rules="addFormRule" ref="addFormRef" label-width="70px">
+=======
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="queryInfo.pagenum"
+        :page-sizes="[1, 2, 5, 10]"
+        :page-size="queryInfo.pagesize"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="total"
+      >
+      </el-pagination>
+    </el-card>
+    <!-- 添加用户的对话框 -->
+    <el-dialog
+      title="添加用户"
+      :visible.sync="addDialogVisible"
+      width="50%"
+      @close="addDialogClosed"
+    >
+      <!-- 内容主体区域 -->
+      <el-form
+        :model="addForm"
+        :rules="addFormRule"
+        ref="addFormRef"
+        label-width="70px"
+      >
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
         <el-form-item label="用户名" prop="username">
           <el-input v-model="addForm.username"></el-input>
         </el-form-item>
@@ -78,9 +152,24 @@
       </span>
     </el-dialog>
     <!-- 修改用户的对话框 -->
+<<<<<<< HEAD
     <el-dialog title="修改用户" :visible.sync="editDialogVisible" width="50%">
       <!-- 内容主体区域 -->
       <el-form :model="editForm" :rules="editFormRule" ref="editFormRef" label-width="70px">
+=======
+    <el-dialog
+      title="修改用户"
+      :visible.sync="editDialogVisible"
+      width="50%"
+    >
+      <!-- 内容主体区域 -->
+      <el-form
+        :model="editForm"
+        :rules="editFormRule"
+        ref="editFormRef"
+        label-width="70px"
+      >
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
         <el-form-item label="用户名">
           <el-input v-model="editForm.username" disabled></el-input>
         </el-form-item>
@@ -94,6 +183,7 @@
       <!-- 底部区域 -->
       <span slot="footer" class="dialog-footer">
         <el-button @click="editDialogVisible = false">取 消</el-button>
+<<<<<<< HEAD
         <el-button type="primary" @click="editUserInfo()">确 定</el-button>
       </span>
     </el-dialog>
@@ -110,6 +200,11 @@
       <span slot="footer" class="dialog-footer">
         <el-button @click="setRoleDialogVisible = false">取 消</el-button>
         <el-button type="primary" @click="saveRoleBefore">确 定</el-button>
+=======
+        <el-button type="primary" @click="editUserInfo()"
+          >确 定</el-button
+        >
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
       </span>
     </el-dialog>
   </div>
@@ -151,8 +246,11 @@ export default {
       addDialogVisible: false,
       // 控制修改用户对话框的显示与隐藏
       editDialogVisible: false,
+<<<<<<< HEAD
       // 控制分配角色对话框的显示与隐藏
       setRoleDialogVisible: false,
+=======
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
       //添加用户的表单数据
       addForm: {
         username: '',
@@ -160,6 +258,7 @@ export default {
         email: '',
         mobile: '',
       },
+<<<<<<< HEAD
       //用户信息
       userInfo: [],
       // 所有角色的职能列表
@@ -168,6 +267,10 @@ export default {
       editForm: {},
       // 已选中的用户id
       selectedRoleId:'',
+=======
+      // 查询到的用户信息对象
+      editForm: {},
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
       // 添加表单的验证规则对象
       addFormRule: {
         username: [
@@ -281,6 +384,7 @@ export default {
     // 修改用户信息并提交
     editUserInfo() {
       this.$refs.editFormRef.validate(async valid => {
+<<<<<<< HEAD
         if (!valid) return
         //发起修改用户的数据请求
         const { data: res } = await this.$http.put('users/' + this.editForm.id,
@@ -291,18 +395,35 @@ export default {
         if (res.meta.status !== 200) {
           return this.$message.error('更新用户消息失败')
         }
+=======
+        if(!valid) return
+        //发起修改用户的数据请求
+        const {data:res} = await this.$http.put('users/'+ this.editForm.id,
+        {
+          email:this.editForm.email,
+          mobile:this.editForm.mobile
+        })
+        if (res.meta.status !== 200) {
+          return this.$message.error('更新用户消息失败')
+        }        
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
         // 关闭对话框
         this.editDialogVisible = false
         // 刷新数据列表
         this.getUserList()
         // 提示修改成功
         this.$message.success('更新用户信息成功')
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
       })
     },
     // 根据Id删除对应的用户信息
     async removeUserById(id) {
       // 弹框询问是否删除
+<<<<<<< HEAD
       const confirmResult = await this.$confirm('此操作将永久删除该用户, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
@@ -355,6 +476,27 @@ export default {
       this.userInfo = ""
     }
 
+=======
+       const confirmResult = await this.$confirm('此操作将永久删除该用户, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).catch(err => err )
+
+        // 如果用户取消了删除 返回字符串为cancel
+        // 如果用户确认删除，返回值为字符串confirm
+        if (confirmResult !== 'confirm') {
+          return this.$message.info('已经取消删除')
+        }
+        const {data:res} = await this.$http.delete('users/' + id );
+        if(res.meta.status !== 200) {
+          return this.$message.error('删除用户失败！')
+        }
+        this.$message.success('删除用户成功')
+        this.getUserList()
+
+    }
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
   },
 }
 </script>
@@ -364,16 +506,25 @@ export default {
   margin-bottom: 15px;
   font-size: 12px;
 }
+<<<<<<< HEAD
 
 .el-card {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15) !important;
 }
 
+=======
+.el-card {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15) !important;
+}
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
 .el-table {
   margin-top: 15px;
   font-size: 12px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
 .el-pagination {
   margin-top: 15px;
 }

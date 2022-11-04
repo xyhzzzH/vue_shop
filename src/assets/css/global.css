@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* 全局样式表 */
 html,
 body,
@@ -36,4 +37,12 @@ body,
 
 .ql-editor {
   min-height: 300px;
+=======
+html,
+body,
+#app {
+    height: 100%;
+    margin: 0;
+    padding: 0pc;
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
 }

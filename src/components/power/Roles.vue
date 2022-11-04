@@ -11,11 +11,18 @@
       <!-- 添加角色按钮区域 -->
       <el-row>
         <el-col>
+<<<<<<< HEAD
           <el-button type="primary" @click="addDialogVisible = true">添加角色</el-button>
+=======
+          <el-button type="primary" @click="addDialogVisible = true"
+            >添加角色</el-button
+          >
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
         </el-col>
       </el-row>
       <!-- 角色列表 -->
       <el-table :data="roleList" border stripe style="width: 100%">
+<<<<<<< HEAD
         <!-- 展开列 expand显示一个可展开的按钮-->
         <el-table-column type="expand">
           <template slot-scope="scope">
@@ -50,6 +57,8 @@
 
         </el-table-column>
         <!-- 索引列 -->
+=======
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
         <el-table-column type="index"> </el-table-column>
         <el-table-column prop="roleName" label="角色名称" width="width">
         </el-table-column>
@@ -58,15 +67,36 @@
         <el-table-column label="操作" width="width">
           <template slot-scope="scope">
             <el-button type="primary" icon="el-icon-edit" @click="showEditDialog(scope.row.id)">编辑</el-button>
+<<<<<<< HEAD
             <el-button type="danger" icon="el-icon-delete" @click="removeUserById(scope.row.id)">删除</el-button>
             <el-button type="warning" icon="el-icon-setting" @click="showSetRightDialog(scope.row)">分配权限</el-button>
+=======
+            <el-button type="danger" icon="el-icon-delete">删除</el-button>
+            <el-button type="warning" icon="el-icon-setting">分配权限</el-button
+            >
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
           </template>
         </el-table-column>
       </el-table>
     </el-card>
     <!--  编辑用户对话框 -->
+<<<<<<< HEAD
     <el-dialog title="添加用户" :visible.sync="addDialogVisible" width="50%" @close="addDialogClosed">
       <el-form :model="addForm" :rules="addFormRules" ref="addFormRef" label-width="100px">
+=======
+    <el-dialog
+      title="添加用户"
+      :visible.sync="addDialogVisible"
+      width="50%"
+      @close="addDialogClosed"
+    >
+      <el-form
+        :model="addForm"
+        :rules="addFormRules"
+        ref="addFormRef"
+        label-width="100px"
+      >
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
         <el-form-item label="角色名称" prop="roleName">
           <el-input v-model="addForm.roleName"></el-input>
         </el-form-item>
@@ -79,10 +109,27 @@
         <el-button type="primary" @click="addFromInfo">确 定</el-button>
       </span>
     </el-dialog>
+<<<<<<< HEAD
     <el-dialog title="编辑用户" :visible.sync="editDialogVisible" width="50%" @close="editDialogClosed">
       <el-form :model="editForm" :rules="editFormRules" ref="editFormRef" label-width="100px">
         <el-form-item label="角色ID" prop="roleId">
           <el-input v-model="editForm.roleId" disabled></el-input>
+=======
+      <el-dialog
+      title="编辑用户"
+      :visible.sync="editDialogVisible"
+      width="50%"
+      @close="editDialogClosed"
+    >
+      <el-form
+        :model="editForm"
+        :rules="editFormRules"
+        ref="editFormRef"
+        label-width="100px"
+      >
+        <el-form-item label="角色ID" prop="id" >
+          <el-input v-model="editForm.id" disabled></el-input>
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
         </el-form-item>
         <el-form-item label="角色名称" prop="roleName">
           <el-input v-model="editForm.roleName"></el-input>
@@ -96,6 +143,7 @@
         <el-button type="primary" @click="editFormInfo()">确 定</el-button>
       </span>
     </el-dialog>
+<<<<<<< HEAD
     <el-dialog title="分配权限" :visible.sync="setRightDialogVisible" width="50%">
       <!-- 树形空间 -->
       <el-tree :data="rightsList" :props="treeProps" show-checkbox node-key="id" default-expand-all
@@ -106,6 +154,8 @@
       </span>
     </el-dialog>
    
+=======
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
   </div>
 </template>
 
@@ -116,7 +166,11 @@ export default {
       // 所有角色列表数据
       roleList: [],
       addForm: {
+<<<<<<< HEAD
         roleId: '',
+=======
+        id:'',
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
         roleName: '',
         roleDesc: '',
       },
@@ -141,12 +195,21 @@ export default {
         ],
       },
       editForm: {
+<<<<<<< HEAD
         roleId: '',
         roleName: '',
         roleDesc: ''
       },
       editDialogVisible: false,
       editFormRules: {
+=======
+        id : '',
+        roleName: '',
+        roleDesc: ''
+      },
+      editDialogVisible:false,
+      editFormRules:{
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
         roleName: [
           { required: true, message: '请输入角色名', trigger: 'blur' },
           {
@@ -164,6 +227,7 @@ export default {
             trigger: 'blur',
           },
         ],
+<<<<<<< HEAD
       },
       // 控制分配权限对话框的显示和隐藏
       setRightDialogVisible: false,
@@ -178,6 +242,10 @@ export default {
       defKeys: [],
       // 当前即将分配权限的角色id保持
       roleId: '',
+=======
+      }
+
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
     }
   },
   created() {
@@ -212,9 +280,14 @@ export default {
       this.$refs.addFormRef.resetFields()
     },
     // 展示表单对话框
+<<<<<<< HEAD
     async showEditDialog(roleId) {
 
       const { data: res } = await this.$http.get('roles/' + roleId)
+=======
+    async showEditDialog(id) {
+      const { data: res } = await this.$http.get('roles/' + id)
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
       if (res.meta.status !== 200) {
         return this.$message.error('查询角色消息失败')
       }
@@ -222,6 +295,7 @@ export default {
       this.editDialogVisible = true
     },
     // 编辑表单
+<<<<<<< HEAD
     editFormInfo() {
       this.$refs.editFormRef.validate(async value => {
         if (!value) return
@@ -319,6 +393,30 @@ export default {
     }
 
   }
+=======
+     editFormInfo() {
+        this.$refs.editFormRef.validate(async value => {
+            if(!value) return
+            const {data:res} = await this.$http.put('roles/'+ this.editForm.id,{
+                roleName:this.editForm.roleName,
+                roleDesc:this.editForm.roleDesc
+            })
+            if(res !== 200){
+                this.$message.error('编辑用户失败！')
+            }         
+            
+            this.editDialogVisible = false
+            this.getRolesList()
+            this.$message.success('编辑用户成功')
+            
+
+        })
+    },
+    editDialogClosed() {
+        this.$refs.editFormRef.resetFields()
+    }
+  },
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
 }
 </script>
 
@@ -326,6 +424,7 @@ export default {
 .el-card {
   margin-top: 10px;
 }
+<<<<<<< HEAD
 
 .el-table {
   margin-top: 10px;
@@ -351,4 +450,9 @@ export default {
   display: flex;
   align-items: center;
 }
+=======
+.el-table {
+  margin-top: 10px;
+}
+>>>>>>> c77ffc7b3563207db5d9cf2e9ac1f7c900149d58
 </style>
